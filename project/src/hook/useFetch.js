@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react"
 
-const useFetch = url => {
+const useFetch = (url, delay) => {
     const [pending, setPending] = useState(false)
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     useEffect(() => {
         const fetchData = async () => {
+            setPending(true)
             setError(null)
             setData(null)
         
             try {
-                setPending(true)
-                const data = await fetch(url)
+                // setTimeout(async () => {
+                    const data = await fetch(url)
                     .then(response => {
                         if(!response.ok) throw new Error(response.status)
-                        return response.json()
+                            return response.json()
                     })
-                setPending(false)
-                setData(data)
-                setError(null)
+                    setPending(false)
+                    setData(data)
+                    setError(null)
+                    console.log(data);
+                    
+                // }, delay * 1000)
             }
 
             catch(error) {
@@ -30,6 +34,7 @@ const useFetch = url => {
         
         fetchData()
     }, [url])
+    
     return {pending, data, error}
 }
 

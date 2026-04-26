@@ -1,13 +1,23 @@
-import useFetch from "../../hook/useFetch"
+import MainHeader from "../../components/mainHeader/MainHeader";
+import CategorySection from "../../components/categorySection/CategorySection";
+import Navigation from "../../components/navigation/Navigation";
+
+import useCategories from "../../hook/useCategories";
 
 const Home = () => {
-    const sections = { world: "world", health: "health", sports: "sports", business: "business", travel: "travel" }
+    const { categories } = useCategories()
+    console.log(categories);
 
-    let {pending, data, error} = useFetch(`https://api.nytimes.com/svc/news/v3/content/nyt/${sections.business}.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR`);
-
-    console.log(pending, data, error);
     return (
-        <h1>hello world</h1>
+        <>
+            <MainHeader />
+            {categories.map((category, i) => {
+                const { enabled, categoryName } = category
+                if (enabled === false) return
+                return <CategorySection key={categoryName} categoryName={categoryName} delay={i} />
+            })}
+            <Navigation currentView={"home"} />
+        </>
     )
 }
 

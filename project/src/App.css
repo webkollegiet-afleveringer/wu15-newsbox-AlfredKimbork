@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "openSans";
+    src: url(./fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+    font-family: "playfair";
+    src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'openSans', 'Helvetica Neue', sans-serif;
+}
+
+#root {margin-bottom: 8rem;}
+
+/* typography */
+
+.--playfair {
+    font-family: 'playfair', serif;
+}
+
+.--grey {
+    color: #404040;
+}
+
+.--black {
+    color: black;
+}
+
+.--no-underline {
+    text-decoration: none;
+}
+
+.--no-list {
+    list-style: none;
+}
+
+/* flex & grid */
+
+.--flex {
+    display: flex;
+}
+
+.--grid {
+    display: grid;
+}
+
+.--justify-between {
+    justify-content: space-between;
+}
+
+.--align-center {
+    align-items: center;
+}
+
+.--gap-16px {
+    gap: 1rem;
+}

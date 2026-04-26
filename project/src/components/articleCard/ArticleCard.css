@@ -1,0 +1,20 @@
+.__articleCard {
+    flex: 0 0 auto;
+}
+
+.__img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    border-radius: .5rem;
+}
+
+.__heading {
+    font-size: 1rem;
+}
+
+.__summary {
+    font-size: .875rem;
+}

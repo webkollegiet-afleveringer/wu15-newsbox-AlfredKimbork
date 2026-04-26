@@ -1,16 +1,23 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import './App.css'
 import Home from './views/Home/Home'
+import Settings from './views/settings/Settings'
+
+import CategoriesProvider from './contexts/categoriesContext'
+
+import './App.css'
 
 const App = () => {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={ <Home /> }/>
-      </Routes>
-    </BrowserRouter>
+    <CategoriesProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={ <Home /> }/>
+          <Route path='/settings' element={ <Settings /> }/>
+        </Routes>
+      </BrowserRouter>
+    </CategoriesProvider>
   )
 }
 

@@ -1,0 +1,19 @@
+.__nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    box-shadow: 0 0 2rem 0 #848484;
+    background: #FFF;
+
+    padding: 2rem 1rem;
+}
+
+.__nav-item {
+    flex-direction: column;
+}
+
+.--current {
+    color: #4D861F;
+}
