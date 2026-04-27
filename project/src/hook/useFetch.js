@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const useFetch = (url, delay) => {
+const useFetch = url => {
     const [pending, setPending] = useState(false)
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
@@ -11,18 +11,14 @@ const useFetch = (url, delay) => {
             setData(null)
         
             try {
-                // setTimeout(async () => {
-                    const data = await fetch(url)
-                    .then(response => {
-                        if(!response.ok) throw new Error(response.status)
-                            return response.json()
-                    })
-                    setPending(false)
-                    setData(data)
-                    setError(null)
-                    console.log(data);
-                    
-                // }, delay * 1000)
+                const data = await fetch(url, { cache: "force-cache" })
+                .then(response => {
+                    if(!response.ok) throw new Error(response.status)
+                        return response.json()
+                })
+                setPending(false)
+                setData(data)
+                setError(null)
             }
 
             catch(error) {

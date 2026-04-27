@@ -2,7 +2,7 @@ import NewsifyIcon from "../newsifyIcon/NewsifyIcon"
 
 import "./CategoryHeading.css"
 
-const CategoryHeading = ({ categoryName, location }) => {
+const CategoryHeading = ({ categoryName }) => {
 
     return <h2 className="__heading --playfair --grey --flex --align-center --gap-16px"><NewsifyIcon size={"small"} />{categoryName}</h2>
 }

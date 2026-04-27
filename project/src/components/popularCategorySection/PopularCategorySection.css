@@ -1,0 +1,39 @@
+details {
+    box-shadow: 0 1px #C5C5C5;
+    
+    &:first-of-type {
+        box-shadow: 0 1px #C5C5C5, 0 -1px #C5C5C5;
+    }
+}
+
+.__header {
+    padding: 1rem;
+}
+
+.__content-list { 
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+}
+
+.__content-item {
+    box-shadow: 0 1px #C5C5C5;
+    padding: 1rem;
+
+    &:first-of-type {
+        box-shadow: 0 1px #C5C5C5, 0 -1px #C5C5C5;
+    }
+}
+
+details[open] + .__content-list {
+    max-height: 800px; /* Set a max-height value enough to show all the content */ 
+    overflow-y: scroll;
+}
+
+.__marker {
+    transition: rotate 200ms ease;
+}
+
+details[open] .__marker {
+    rotate: 90deg;
+}
