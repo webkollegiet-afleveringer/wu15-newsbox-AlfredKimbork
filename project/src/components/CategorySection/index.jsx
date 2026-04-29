@@ -2,7 +2,7 @@ import { IoChevronForwardOutline } from "react-icons/io5"
 import { useState } from "react"
 
 import useFetch from "../../hook/useFetch"
-import ArticleCard from "../ArticleCard"
+import ArticleCard from "./ArticleCard"
 import CategoryHeading from "../CategoryHeading"
 
 import "./CategorySection.scss"

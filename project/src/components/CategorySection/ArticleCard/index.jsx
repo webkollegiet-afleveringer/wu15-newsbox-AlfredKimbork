@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { FaRegBookmark } from "react-icons/fa";
 
-import saveArticle from "../../lib/saveArticle";
-import deleteArticle from "../../lib/deleteArticle";
+import saveArticle from "../../../lib/saveArticle";
+import deleteArticle from "../../../lib/deleteArticle";
 
 import "./ArticleCard.scss"
-import useCategories from "../../hook/useCategories";
+import useCategories from "../../../hook/useCategories";
 
 const ArticleCard = ({ viewLocation, categoryName, url, img, title, abstract }) => {
     const { setCategories } = useCategories()
