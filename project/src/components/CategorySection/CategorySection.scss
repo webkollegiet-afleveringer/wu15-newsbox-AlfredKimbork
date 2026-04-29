@@ -31,6 +31,7 @@ details[open] + .__content-list {
 }
 
 .__marker {
+    transition: all .3s ease;
     transition: rotate 200ms ease;
     color: $main-color;
 }

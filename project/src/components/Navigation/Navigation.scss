@@ -1,6 +1,8 @@
 @use "../../style/variables" as *;
 
 .__nav {
+    transition: all .3s ease;
+
     position: fixed;
     bottom: 0;
     left: 0;
@@ -13,11 +15,15 @@
 }
 
 .__nav-item {
+    transition: all .3s ease;
+
     flex-direction: column;
     color: $main-color;
 }
 
 .__icon {
+    transition: all .3s ease;
+
     color: $main-color;
 }
 

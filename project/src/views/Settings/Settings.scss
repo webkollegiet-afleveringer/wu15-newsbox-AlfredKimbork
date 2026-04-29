@@ -1,0 +1,30 @@
+@use "../../style/variables" as *;
+
+.__modeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #4D861F;
+    font-size: 1.25rem;
+
+    background: transparent;
+    border-radius: 2rem;
+    border: 1px solid #4D861F;
+
+    width: 90%;
+    max-width: 30rem;
+
+    padding: 1rem;
+    margin: 2rem auto;
+}
+
+.__version {
+    text-align: center;
+    color: $main-color;
+    font-size: .75rem;
+    
+    opacity: .5;
+
+    padding-bottom: 2rem;
+}

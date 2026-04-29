@@ -1,16 +1,20 @@
+import { useEffect } from "react";
+
 import MainHeader from "../../components/MainHeader";
 import CategoryToggle from "../../components/CategoryToggle";
 import Navigation from "../../components/Navigation";
 
-import handleGetStorage from "../../lib/handleGetStorage";
 import useCategories from "../../hook/useCategories";
+import useMode from "../../hook/usemode";
+
+import handleGetStorage from "../../lib/handleGetStorage";
+import handleMode from "../../lib/handleMode";
 
 import "./Settings.scss"
-import { useEffect } from "react";
 
 const Settings = () => {
     const { categories, setCategories } = useCategories();
-    console.log(categories);
+    const { mode, setMode } = useMode();
 
     useEffect(() => {
         setCategories(handleGetStorage());
@@ -25,6 +29,10 @@ const Settings = () => {
                     return <CategoryToggle key={categoryName} categoryName={categoryName} enabled={enabled} />
                 })}
             </ul>
+
+            <button className="__modeBtn" onClick={() => handleMode(mode, setMode)}>Toggle dark mode</button>
+
+            <p className="__version">Version 4.8.15.16.23.42</p>
             <Navigation currentView={"settings"} />
         </>
     )
