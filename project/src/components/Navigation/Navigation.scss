@@ -1,17 +1,24 @@
+@use "../../style/variables" as *;
+
 .__nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     
-    box-shadow: 0 0 2rem 0 #848484;
-    background: #FFF;
+    box-shadow: 0 0 2rem 0 #000000;
+    background: $main-bg;
 
     padding: 2rem 1rem;
 }
 
 .__nav-item {
     flex-direction: column;
+    color: $main-color;
+}
+
+.__icon {
+    color: $main-color;
 }
 
 .--current {

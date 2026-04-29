@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaRegBookmark } from "react-icons/fa";
+import { BiTrashAlt } from "react-icons/bi";
 
 import saveArticle from "../../../lib/saveArticle";
 import deleteArticle from "../../../lib/deleteArticle";
@@ -38,7 +39,7 @@ const ArticleCard = ({ viewLocation, categoryName, url, img, title, abstract }) 
 
     return (
         <article className={`__articleContainer --grid ${viewLocation === "archive" ? "--bg-red" : "--bg-green"}`}>
-            <FaRegBookmark className="__bookmark" size={"1.5rem"} color="#FFF" />
+            {viewLocation === "archive" ? <BiTrashAlt className="__trash" size={"1.5rem"} color="#FFF" /> : <FaRegBookmark className="__bookmark" size={"1.5rem"} color="#FFF" />}
             <a 
                 href={url} 
                 onTouchStart={handleStartMove} 

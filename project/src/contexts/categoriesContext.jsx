@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import handleGetStorage from "../lib/handleGetStorage";
 
-export const categoriesContext = createContext()
+const categoriesContext = createContext()
 const CategoriesProvider = ({ children }) => {
     const [categories, setCategories] = useState(handleGetStorage());
 
@@ -11,4 +11,6 @@ const CategoriesProvider = ({ children }) => {
         </categoriesContext.Provider>
     )
 } 
+
+export { categoriesContext }
 export default CategoriesProvider
