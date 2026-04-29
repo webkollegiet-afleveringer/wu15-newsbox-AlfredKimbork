@@ -1,6 +1,6 @@
-import NewsifyIcon from "../../components/newsifyIcon/NewsifyIcon";
+import NewsifyIcon from "../NewsifyIcon";
 
-import "./MainHeader.css"
+import "./MainHeader.scss"
 
 const MainHeader = () => {
     

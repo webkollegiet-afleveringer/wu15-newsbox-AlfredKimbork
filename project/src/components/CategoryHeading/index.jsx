@@ -1,6 +1,6 @@
-import NewsifyIcon from "../newsifyIcon/NewsifyIcon"
+import NewsifyIcon from "../NewsifyIcon"
 
-import "./CategoryHeading.css"
+import "./CategoryHeading.scss"
 
 const CategoryHeading = ({ categoryName }) => {
 

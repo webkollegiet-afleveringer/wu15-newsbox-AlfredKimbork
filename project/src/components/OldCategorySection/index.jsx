@@ -2,10 +2,10 @@ import { IoChevronForwardOutline } from "react-icons/io5"
 import { useState } from "react"
 
 import useFetch from "../../hook/useFetch"
-import ArticleCard from "../articleCard/ArticleCard"
-import CategoryHeading from "../categoryHeading/CategoryHeading"
+import ArticleCard from "../ArticleCard/ArticleCard"
+import CategoryHeading from "../CategoryHeading"
 
-import "./HomeCategorySection.css"
+import "./HomeCategorySection.scss"
 
 
 const HomeCategorySection = ({ categoryName, fetchURL }) => {

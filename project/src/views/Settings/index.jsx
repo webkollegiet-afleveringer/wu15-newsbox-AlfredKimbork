@@ -1,14 +1,21 @@
-import CategoryToggle from "../../components/categoryToggle/CategoryToggle";
-import MainHeader from "../../components/mainHeader/MainHeader";
-import Navigation from "../../components/navigation/Navigation";
+import MainHeader from "../../components/MainHeader";
+import CategoryToggle from "../../components/CategoryToggle";
+import Navigation from "../../components/Navigation";
 
+import handleGetStorage from "../../lib/handleGetStorage";
 import useCategories from "../../hook/useCategories";
 
-import "./Settings.css"
+import "./Settings.scss"
+import { useEffect } from "react";
 
 const Settings = () => {
+    const { categories, setCategories } = useCategories();
+    console.log(categories);
 
-    const { categories } = useCategories()
+    useEffect(() => {
+        setCategories(handleGetStorage());
+    }, []);
+
     return (
         <>
             <MainHeader />

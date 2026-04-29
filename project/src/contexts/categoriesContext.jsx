@@ -1,14 +1,9 @@
 import { createContext, useState } from "react";
+import handleGetStorage from "../lib/handleGetStorage";
 
 export const categoriesContext = createContext()
 const CategoriesProvider = ({ children }) => {
-    const [categories, setCategories] = useState([ 
-        {enabled: true, categoryName: "health"}, 
-        {enabled: true, categoryName: "sports"}, 
-        {enabled: true, categoryName: "travel"},
-        {enabled: false, categoryName: "world"}, 
-        {enabled: false, categoryName: "business"}, 
-    ]);
+    const [categories, setCategories] = useState(handleGetStorage());
 
     return (
         <categoriesContext.Provider value={{ categories, setCategories }}>

@@ -1,7 +1,7 @@
-import CategoryHeading from "../categoryHeading/CategoryHeading"
-import Switch from "../switch/Switch"
+import CategoryHeading from "../CategoryHeading"
+import Switch from "../Switch"
 
-import "./CategoryToggle.css"
+import "./CategoryToggle.scss"
 
 const CategoryToggle = ({ categoryName, enabled }) => {
 

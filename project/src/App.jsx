@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import Home from './views/Home/Home'
-import Popular from './views/popular/Popular'
-import Settings from './views/settings/Settings'
+import Home from './views/Home'
+import Popular from './views/Popular'
+import Settings from './views/Settings'
 
 import CategoriesProvider from './contexts/categoriesContext'
 
 import './App.css'
+import Archive from './views/archive'
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={ <Home /> }/>
           <Route path='/popular' element={ <Popular /> }/>
+          <Route path='/archive' element={ <Archive /> }/>
           <Route path='/settings' element={ <Settings /> }/>
         </Routes>
       </BrowserRouter>
