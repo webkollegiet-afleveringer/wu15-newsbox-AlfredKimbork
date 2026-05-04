@@ -9,10 +9,15 @@ import CategoriesProvider from './contexts/categoriesContext'
 import ModeProvider from './contexts/modeContext'
 
 import './style/App.scss'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const App = () => {
+
+  const queryClient = new QueryClient();
   
   return (
+    <QueryClientProvider client={queryClient}>
     <CategoriesProvider>
     <ModeProvider>
       <BrowserRouter>
@@ -23,8 +28,10 @@ const App = () => {
           <Route path='/settings' element={ <Settings /> }/>
         </Routes>
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
     </ModeProvider>
     </CategoriesProvider>
+    </QueryClientProvider>
   )
 }
 
