@@ -5,7 +5,7 @@ import CategoryToggle from "../../components/CategoryToggle";
 import Navigation from "../../components/Navigation";
 
 import useCategories from "../../hook/useCategories";
-import useMode from "../../hook/usemode";
+import useMode from "../../hook/useMode";
 
 import handleGetStorage from "../../lib/handleGetStorage";
 import handleMode from "../../lib/handleMode";
