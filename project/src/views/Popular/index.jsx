@@ -14,7 +14,7 @@ import "./Popular.scss"
 
 const Popular = () => {
     const { categories, setCategories } = useCategories()
-    let { pending, data, error } = useFetch("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR")
+    let { pending, data, error } = useFetch("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR", "popular")
 
     let groupedCategories = [];
     if (data) groupedCategories = Array.from(Map.groupBy(data.results, article => article.section));

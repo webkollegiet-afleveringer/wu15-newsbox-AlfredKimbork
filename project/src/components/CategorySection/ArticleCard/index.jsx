@@ -22,7 +22,7 @@ const ArticleCard = ({ viewLocation, categoryName, url, img, title, abstract }) 
     }
 
     const handleEndMove = e => {
-        if (endX - startX < 0 && Math.abs(endX-startX) >= 104) {
+        if (endX !== 0 && Math.abs(endX-startX) >= 104) {
             const ls = JSON.parse(localStorage.getItem("categories"))
             let newLocalStorage;
 

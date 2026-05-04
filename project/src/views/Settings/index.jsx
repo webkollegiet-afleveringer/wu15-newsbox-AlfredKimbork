@@ -23,15 +23,13 @@ const Settings = () => {
     return (
         <>
             <MainHeader />
+            <button className="__modeBtn" onClick={() => handleMode(mode, setMode)}>Toggle dark mode</button>
             <ul>
-                {categories.map(category => {
+                {categories.sort((a, b) => a.categoryName.localeCompare(b.categoryName)).map(category => {
                     const { enabled, categoryName} = category
                     return <CategoryToggle key={categoryName} categoryName={categoryName} enabled={enabled} />
                 })}
             </ul>
-
-            <button className="__modeBtn" onClick={() => handleMode(mode, setMode)}>Toggle dark mode</button>
-
             <p className="__version">Version 4.8.15.16.23.42</p>
             <Navigation currentView={"settings"} />
         </>

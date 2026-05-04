@@ -1,5 +1,6 @@
-import MainHeader from "../../components/MainHeader";
+import { useEffect } from "react";
 
+import MainHeader from "../../components/MainHeader";
 import Navigation from "../../components/Navigation";
 
 import handleSetStorage from "../../lib/handleSetStorage";
@@ -7,12 +8,11 @@ import useFetch from "../../hook/useFetch";
 import useCategories from "../../hook/useCategories";
 
 import CategorySection from "../../components/CategorySection";
-import { useEffect } from "react";
 import handleGetStorage from "../../lib/handleGetStorage";
 
 const Home = () => {
     const { categories, setCategories } = useCategories()
-    let { pending, data, error } = useFetch("https://api.nytimes.com/svc/news/v3/content/nyt/all.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR&limit=50")
+    let { pending, data, error } = useFetch("https://api.nytimes.com/svc/news/v3/content/nyt/all.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR&limit=50", "home")
 
     let groupedCategories = [];
     if (data) groupedCategories = Array.from(Map.groupBy(data.results, article => article.section));
