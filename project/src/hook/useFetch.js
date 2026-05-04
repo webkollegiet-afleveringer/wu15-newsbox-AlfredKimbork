@@ -4,31 +4,33 @@ const useFetch = (url, key) => {
     const [pending, setPending] = useState(false)
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
+
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async () => {            
             setPending(true)
             setError(null)
             setData(null)
         
             try {
-                const data = await fetch(url, key)
+                const data = await fetch(url)
                     .then(response => {
                         if (!response.ok) throw new Error(response.status);
-
+                        
                         if (response.headers.get("content-type").includes("application/json")) return response.json();
-                            else if (response.headers.get("content-type").includes("application/text")) return response.text();
-                    })
+                        else if (response.headers.get("content-type").includes("application/text")) return response.text();
+                    });
+                
                 setPending(false);
                 setData(data);
                 setError(null);
-
+                
                 if (key) {
                     sessionStorage.setItem(key, JSON.stringify(data));
                     /* get time now (in ms) and add time (ms, s, m)*/
                     sessionStorage.setItem (`${key}_exp`, JSON.stringify(Date.now() + 1000 * 60 * 1));
                 }
             }
-
+            
             catch(error) {
                 setPending(false);
                 setData(null);
@@ -41,11 +43,12 @@ const useFetch = (url, key) => {
 
         if(cache && JSON.parse(cacheExp) > Date.now()) {
             setPending(false);
-            setData(JSON.parse(cache));    
+            setData(JSON.parse(cache));  
+            setError(null);
         } else {
             fetchData();
         }
-        
+    
     }, [url, key])
     
     return {pending, data, error}

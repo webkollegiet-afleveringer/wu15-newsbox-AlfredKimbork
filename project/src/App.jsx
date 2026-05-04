@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Home from './views/Home'
+import Archive from './views/archive'
 import Popular from './views/Popular'
 import Settings from './views/Settings'
 
 import CategoriesProvider from './contexts/categoriesContext'
+import ModeProvider from './contexts/modeContext'
 
 import './style/App.scss'
-import Archive from './views/archive'
-import ModeProvider from './contexts/modeContext'
 
 const App = () => {
   
