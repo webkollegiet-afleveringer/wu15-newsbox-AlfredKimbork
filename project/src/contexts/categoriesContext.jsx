@@ -4,6 +4,8 @@ import handleGetStorage from "../lib/handleGetStorage";
 const categoriesContext = createContext()
 const CategoriesProvider = ({ children }) => {
     const [categories, setCategories] = useState(handleGetStorage());
+
+    // ! ignore this, this is the old way of handling categories, we are now using handleGetStorage and handleSetStorage instead
     // const [categories, setCategories] = useState([
     //     {categoryName: "business", enabled: true},
     //     {categoryName: "health", enabled: true},

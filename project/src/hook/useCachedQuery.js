@@ -6,7 +6,7 @@ const useCachedQuery = (url, keys) => {
     let { isPending, data, error }  = useQuery({
         queryKey: keys,
         queryFn: () => getArticles(url),
-        staleTime: 1000 * 60 * 1, // 1 minute
+        staleTime: 1000 * 60 * 1, // * 1 minute
     });
 
     return { isPending, data, error }

@@ -7,7 +7,6 @@ import CategoryHeading from "../CategoryHeading"
 
 import "./HomeCategorySection.scss"
 
-
 const HomeCategorySection = ({ categoryName, fetchURL }) => {
     let { pending, data, error } = useFetch(fetchURL)
 

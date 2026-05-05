@@ -8,17 +8,18 @@ import handleSetStorage from "../../lib/handleSetStorage";
 import handleGetStorage from "../../lib/handleGetStorage";
 import getArticles from "../../lib/getArticles";
 
+// ! ignore this, this is the old way of fetching data, we are now using useCachedQuery instead
 // import useFetch from "../../hook/useFetch";
+
 import useCachedQuery from "../../hook/useCachedQuery";
 import useCategories from "../../hook/useCategories";
 import useSearch from "../../hook/useSearch";
-
-
 
 const Home = () => {
     const { categories, setCategories } = useCategories()
     const { search } = useSearch();
     
+    // ! ignore this, this is the old way of fetching data, we are now using useCachedQuery instead
     // let { pending, data, error } = useFetch("https://api.nytimes.com/svc/news/v3/content/nyt/all.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR&limit=50", "home");
     const { isPending, data, error } = useCachedQuery(search !== "" ? `https://api.nytimes.com/svc/news/v3/content/nyt/articlesearch.json?q=${search}&api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR` : "https://api.nytimes.com/svc/news/v3/content/nyt/all.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR&limit=50", ["homeData", search]);
 

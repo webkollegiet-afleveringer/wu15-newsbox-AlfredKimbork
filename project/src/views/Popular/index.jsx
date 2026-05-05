@@ -7,16 +7,17 @@ import handleSetStorage from "../../lib/handleSetStorage"
 import handleGetStorage from "../../lib/handleGetStorage"
 import getArticles from "../../lib/getArticles"
 
-import useCategories from "../../hook/useCategories"
+// ! ignore this, this is the old way of fetching data, we are now using useCachedQuery instead
 // import useFetch from "../../hook/useFetch"
 
-import "./Popular.scss"
 import useCachedQuery from "../../hook/useCachedQuery"
+import useCategories from "../../hook/useCategories"
 
 const Popular = () => {
     const { categories, setCategories } = useCategories()
 
-    // let { pending, data, error } = useFetch("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR", "popular") 
+    // ! ignore this, this is the old way of fetching data, we are now using useCachedQuery instead
+    // let { pending, data, error } = useFetch("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR", "popular")
     const {isPending, data, error} = useCachedQuery("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR", ["popularData"])
 
     let groupedCategories = [];
