@@ -11,17 +11,13 @@ import useCategories from "../../hook/useCategories"
 // import useFetch from "../../hook/useFetch"
 
 import "./Popular.scss"
+import useCachedQuery from "../../hook/useCachedQuery"
 
 const Popular = () => {
     const { categories, setCategories } = useCategories()
-    // let { pending, data, error } = useFetch("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR", "popular")
 
-    const queryClient = useQueryClient();
-    let { isPending, data, error }  = useQuery({
-        queryKey: ["popularData"],
-        queryFn: () => getArticles("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR"),
-        staleTime: 1000 * 60 * 1, // 1 minute
-    });
+    // let { pending, data, error } = useFetch("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR", "popular") 
+    const {isPending, data, error} = useCachedQuery("https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR", ["popularData"])
 
     let groupedCategories = [];
     if (data) groupedCategories = Array.from(Map.groupBy(data.results, article => article.section));

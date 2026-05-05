@@ -9,8 +9,8 @@ import handleGetStorage from "../../lib/handleGetStorage";
 import getArticles from "../../lib/getArticles";
 
 // import useFetch from "../../hook/useFetch";
+import useCachedQuery from "../../hook/useCachedQuery";
 import useCategories from "../../hook/useCategories";
-import SearchProvider from "../../contexts/searchContext";
 import useSearch from "../../hook/useSearch";
 
 
@@ -20,12 +20,7 @@ const Home = () => {
     const { search } = useSearch();
     
     // let { pending, data, error } = useFetch("https://api.nytimes.com/svc/news/v3/content/nyt/all.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR&limit=50", "home");
-    const queryClient = useQueryClient();
-    let { isPending, data, error }  = useQuery({
-        queryKey: ["homeData", search],
-        queryFn: () => getArticles(search !== "" ? `https://api.nytimes.com/svc/news/v3/content/nyt/articlesearch.json?q=${search}&api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR` : "https://api.nytimes.com/svc/news/v3/content/nyt/all.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR&limit=50"),
-        staleTime: 1000 * 60 * 1, // 1 minute
-    });
+    const { isPending, data, error } = useCachedQuery(search !== "" ? `https://api.nytimes.com/svc/news/v3/content/nyt/articlesearch.json?q=${search}&api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR` : "https://api.nytimes.com/svc/news/v3/content/nyt/all.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR&limit=50", ["homeData", search]);
 
     let groupedCategories = [];
     if (data) groupedCategories = Array.from(Map.groupBy(data.results, article => article.section));
