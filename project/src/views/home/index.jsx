@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
-import MainHeader from "../../components/MainHeader";
 import CategorySection from "../../components/CategorySection";
-import Navigation from "../../components/Navigation";
 
 import handleSetStorage from "../../lib/handleSetStorage";
 import handleGetStorage from "../../lib/handleGetStorage";
@@ -35,7 +33,6 @@ const Home = () => {
 
     return (
         <>
-            <MainHeader />
             {// for each preset category, check if the category is enabled, if it is enabled, render the category section, if not, skip it
                 /* {categories.map(category => {
                     const { enabled, categoryName } = category
@@ -47,9 +44,7 @@ const Home = () => {
                 if(categories.find(category => category.categoryName === thisCategory[0] && category.enabled === false)) return; 
                 return <CategorySection key={thisCategory[0]} viewLocation={"home"} categoryName={thisCategory[0]} articles={thisCategory[1]} />
             })}
-            <Navigation currentView={"home"} />
         </>
-
     )
 }
 

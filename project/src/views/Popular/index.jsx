@@ -1,9 +1,7 @@
 import { useEffect } from "react"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 
-import MainHeader from "../../components/MainHeader"
 import CategorySection from "../../components/CategorySection"
-import Navigation from "../../components/Navigation"
 
 import handleSetStorage from "../../lib/handleSetStorage"
 import handleGetStorage from "../../lib/handleGetStorage"
@@ -35,12 +33,10 @@ const Popular = () => {
     
     return (
         <>
-            <MainHeader />
             {data && groupedCategories.map(thisCategory => {
                 if(categories.find(category => category.categoryName === thisCategory[0] && category.enabled === false)) return;                
                 return <CategorySection key={thisCategory[0]} viewLocation={"popular"} categoryName={thisCategory[0]} articles={thisCategory[1]} />
             })}
-            <Navigation currentView={"popular"} />
         </>
     )
 }

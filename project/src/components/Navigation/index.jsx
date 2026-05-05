@@ -11,10 +11,10 @@ const Navigation = ({ currentView }) => {
     return (
         <nav className="__nav">
             <ul className="__nav-list --flex --justify-between">
-                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "home" ? "--current" : ""}`} to="/"><BiHomeAlt2 size={"1.5rem"} />Home</Link></li>
-                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "archive" ? "--current" : ""}`} to="/archive"><FaRegBookmark size={"1.5rem"} />Archive</Link></li>
-                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "popular" ? "--current" : ""}`} to="/popular"><FaRegStar size={"1.5rem"} />Popular</Link></li>
-                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "settings" ? "--current" : ""}`} to="/settings"><FiSettings size={"1.5rem"} />Settings</Link></li>
+                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "/" ? "--current" : ""}`} to="/"><BiHomeAlt2 size={"1.5rem"} />Home</Link></li>
+                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "/archive" ? "--current" : ""}`} to="/archive"><FaRegBookmark size={"1.5rem"} />Archive</Link></li>
+                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "/popular" ? "--current" : ""}`} to="/popular"><FaRegStar size={"1.5rem"} />Popular</Link></li>
+                <li className="--no-list"><Link className={`__nav-item --no-underline --flex --align-center ${currentView === "/settings" ? "--current" : ""}`} to="/settings"><FiSettings size={"1.5rem"} />Settings</Link></li>
             </ul>
         </nav>
     )
