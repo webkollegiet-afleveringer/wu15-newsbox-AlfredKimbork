@@ -17,11 +17,9 @@ const Archive = () => {
     
     return (
         <>
-            <MainHeader />
             {categories.map(category => {
                 if(category.savedArticles) return <CategorySection key={category.categoryName} viewLocation={"archive"} categoryName={category.categoryName} articles={category.savedArticles} />
             })}
-            <Navigation currentView={"archive"} />
         </>
     )
 }

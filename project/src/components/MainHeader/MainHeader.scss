@@ -1,11 +1,15 @@
 @use "../../style/variables.scss" as *;
 
-.__main-header {
+.mainHeader {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    color: $main-color;
-    font-size: 1.5rem;
-
+    
     padding-block: 2rem;
+    
+    .__heading {
+        color: $main-color;
+        font-size: 1.5rem;
+    }
 }
+

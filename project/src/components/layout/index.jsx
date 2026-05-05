@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 
 import MainHeader from "../MainHeader";
 import Navigation from "../Navigation";
+import SearchBar from "../Searchbar";
 
 
 const Layout = () => {
@@ -9,7 +10,9 @@ const Layout = () => {
     
     return (
         <>
-            <MainHeader />
+            <MainHeader>
+                {location.pathname === "/" && <SearchBar />}
+            </MainHeader>
             <Outlet />
             <Navigation currentView={location.pathname} />
         </>

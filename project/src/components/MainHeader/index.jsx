@@ -2,9 +2,14 @@ import NewsifyIcon from "../NewsifyIcon";
 
 import "./MainHeader.scss"
 
-const MainHeader = () => {
+const MainHeader = ({children}) => {
     
-    return <h1 className="__main-header --playfair --grey --flex --gap-16px"><NewsifyIcon size={"small"} />Newsify</h1>
+    return (
+        <header className="mainHeader --flex --gap-16px">
+            <h1 className="__heading --playfair --grey --flex --gap-16px"><NewsifyIcon size={"small"} />Newsify</h1>
+            {children}
+        </header>
+    )
 }
 
 export default MainHeader
