@@ -18,7 +18,7 @@ const Archive = () => {
     return (
         <>
             {categories.map(category => {
-                if(category.savedArticles) return <CategorySection key={category.categoryName} viewLocation={"archive"} categoryName={category.categoryName} articles={category.savedArticles} />
+                if(category.savedArticles) return <CategorySection key={category.categoryName} categoryName={category.categoryName} articles={category.savedArticles} />
             })}
         </>
     )

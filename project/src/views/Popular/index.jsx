@@ -32,7 +32,7 @@ const Popular = () => {
         <>
             {data && groupedCategories.map(thisCategory => {
                 if(categories.find(category => category.categoryName === thisCategory[0] && category.enabled === false)) return;                
-                return <CategorySection key={thisCategory[0]} viewLocation={"popular"} categoryName={thisCategory[0]} articles={thisCategory[1]} />
+                return <CategorySection key={thisCategory[0]} categoryName={thisCategory[0]} articles={thisCategory[1]} />
             })}
         </>
     )

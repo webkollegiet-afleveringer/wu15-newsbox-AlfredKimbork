@@ -33,16 +33,17 @@ const Home = () => {
 
     return (
         <>
+            // ! ignore this, this is the old way of displaying hardcoded categories, we are now dynamically rendering categories based on the fetched data
             {// for each preset category, check if the category is enabled, if it is enabled, render the category section, if not, skip it
-                /* {categories.map(category => {
-                    const { enabled, categoryName } = category
-                    if (enabled === false) return
-                    return <HomeCategorySection key={categoryName} categoryName={categoryName}  fetchURL={`https://api.nytimes.com/svc/news/v3/content/nyt/${categoryName}.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR`}/>
-                    })} */}
+            /* {categories.map(category => {
+                const { enabled, categoryName } = category
+                if (enabled === false) return
+                return <HomeCategorySection key={categoryName} categoryName={categoryName}  fetchURL={`https://api.nytimes.com/svc/news/v3/content/nyt/${categoryName}.json?api-key=hYKoGMGrVAgJGhmpwhlfUNA7JETCZS5lk2KmPvEbwHJGYGeR`}/>
+            })} */}
 
             {categories && groupedCategories.map(thisCategory => {
                 if(categories.find(category => category.categoryName === thisCategory[0] && category.enabled === false)) return; 
-                return <CategorySection key={thisCategory[0]} viewLocation={"home"} categoryName={thisCategory[0]} articles={thisCategory[1]} />
+                return <CategorySection key={thisCategory[0]} categoryName={thisCategory[0]} articles={thisCategory[1]} />
             })}
         </>
     )

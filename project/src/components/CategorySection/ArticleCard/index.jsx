@@ -1,15 +1,19 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 import { FaRegBookmark } from "react-icons/fa";
 import { BiTrashAlt } from "react-icons/bi";
 
 import saveArticle from "../../../lib/saveArticle";
 import deleteArticle from "../../../lib/deleteArticle";
 
-import "./ArticleCard.scss"
 import useCategories from "../../../hook/useCategories";
 
-const ArticleCard = ({ viewLocation, categoryName, url, img, title, abstract }) => {
+import "./ArticleCard.scss"
+
+const ArticleCard = ({ categoryName, url, img, title, abstract }) => {
     const { setCategories } = useCategories()
+    const location = useLocation();
 
     const [endX, setEndX] = useState(0);
     const [startX, setStartX] = useState(0);
@@ -26,7 +30,7 @@ const ArticleCard = ({ viewLocation, categoryName, url, img, title, abstract }) 
             const ls = JSON.parse(localStorage.getItem("categories"))
             let newLocalStorage;
 
-            if(viewLocation === "archive") newLocalStorage = deleteArticle(ls, categoryName, url);
+            if(location.pathname === "/archive") newLocalStorage = deleteArticle(ls, categoryName, url);
                 else newLocalStorage = saveArticle(ls, categoryName, url, img, title, abstract);
 
             setCategories(newLocalStorage);
@@ -38,8 +42,9 @@ const ArticleCard = ({ viewLocation, categoryName, url, img, title, abstract }) 
     }
 
     return (
-        <article className={`__articleContainer --grid ${viewLocation === "archive" ? "--bg-red" : "--bg-green"}`}>
-            {viewLocation === "archive" ? <BiTrashAlt className="__trash" size={"1.5rem"} color="#FFF" /> : <FaRegBookmark className="__bookmark" size={"1.5rem"} color="#FFF" />}
+        <article className={`__articleContainer --grid ${location.pathname === "/archive" ? "--bg-red" : "--bg-green"}`}>
+            {location.pathname === "/archive" ? <BiTrashAlt className="__trash" size={"1.5rem"} color="#FFF" /> 
+                : <FaRegBookmark className="__bookmark" size={"1.5rem"} color="#FFF" />}
             <a 
                 href={url} 
                 onTouchStart={handleStartMove} 
