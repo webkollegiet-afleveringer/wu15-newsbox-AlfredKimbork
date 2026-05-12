@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 import { IoChevronForwardOutline } from "react-icons/io5"
 
-import useFetch from "../../hook/useFetch"
 import ArticleCard from "./ArticleCard"
 import CategoryHeading from "../CategoryHeading"
 
