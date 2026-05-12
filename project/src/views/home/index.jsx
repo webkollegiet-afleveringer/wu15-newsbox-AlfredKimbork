@@ -33,8 +33,7 @@ const Home = () => {
 
     return (
         <>
-            // ! ignore this, this is the old way of displaying hardcoded categories, we are now dynamically rendering categories based on the fetched data
-            {// for each preset category, check if the category is enabled, if it is enabled, render the category section, if not, skip it
+            {// ! ignore this, this is the old way of displaying hardcoded categories, we are now dynamically rendering categories based on the fetched data
             /* {categories.map(category => {
                 const { enabled, categoryName } = category
                 if (enabled === false) return
