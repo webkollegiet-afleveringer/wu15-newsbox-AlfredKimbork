@@ -5,7 +5,7 @@ const categoriesContext = createContext()
 const CategoriesProvider = ({ children }) => {
     const [categories, setCategories] = useState(handleGetStorage());
 
-    // ! ignore this, this is the old way of handling categories, we are now using handleGetStorage and handleSetStorage instead
+    // ! ignore this, this is the old way of handling categories, we are now dynamically creating categories based on the fetched data, and storing them in local storage, so we can easily add new categories without having to change the code
     // const [categories, setCategories] = useState([
     //     {categoryName: "business", enabled: true},
     //     {categoryName: "health", enabled: true},
